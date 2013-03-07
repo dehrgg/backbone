@@ -828,7 +828,7 @@
     create: function(model, options) {
       options = options ? _.clone(options) : {};
       if (!(model = this._prepareModel(model, options))) return false;
-      if (!options.wait) this.add(model, options);
+      if (!options.wait && !this.add(model, options)) return false;
       var collection = this;
       var success = options.success;
       options.success = function(resp) {
